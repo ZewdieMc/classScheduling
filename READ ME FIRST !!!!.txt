@@ -1,0 +1,20 @@
+To login as admin / faculty dean:
+username: abejeciveng
+password: zemene
+
+To login as department head:
+username: getasew1
+password: nibret
+
+To login as a teacher:
+username: adane1
+password: belay
+
+To login as student:
+username: adane1
+password: yenealem
+
+Database Name: Scheduling
+sql file location: database/scheduling.sql
+
+for more innformation 
