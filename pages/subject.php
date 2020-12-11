@@ -10,7 +10,7 @@ error_reporting(0);
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Course | <?php include('../dist/includes/title.php'); ?></title>
+        <title>Course | <?php include '../dist/includes/title.php';?></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
@@ -33,7 +33,7 @@ error_reporting(0);
             <img src="../dist/img/header.png" alt="site logo goes here." style="height: 150px;width: 100%;">
         </div>
         <div class="wrapper">
-            <?php include('../dist/includes/header.php'); ?>
+            <?php include '../dist/includes/header.php';?>
             <!-- Full Width Column -->
             <div class="content-wrapper">
                 <div class="container">
@@ -63,34 +63,34 @@ error_reporting(0);
                                                     </thead>
 
                                                     <?php
-                                                    include('../dist/includes/dbcon.php');
-                                                    $query = mysqli_query($con, "select * from subject   where subject.dept_id='$_SESSION[dept_id]'")or die(mysqli_error());
+include '../dist/includes/dbcon.php';
+$query = mysqli_query($con, "select * from subject   where subject.dept_id='$_SESSION[dept_id]'") or die(mysqli_error());
 
-                                                    while ($row = mysqli_fetch_array($query)) {
-                                                        $id = $row['subject_id'];
-                                                        $code = $row['subject_code'];
-                                                        $title = $row['subject_title'];
-                                                        $dept = $_SESSION['dept_code'];
-                                                        $cys = $row['cys'];
-                                                        ?>
+while ($row = mysqli_fetch_array($query)) {
+    $id    = $row['subject_id'];
+    $code  = $row['subject_code'];
+    $title = $row['subject_title'];
+    $dept  = $_SESSION['dept_code'];
+    $cys   = $row['cys'];
+    ?>
                                                         <tr>
                                                             <td><?php echo $code; ?></td>
                                                             <td><?php echo $title; ?></td>
                                                             <td><?php echo $dept; ?></td>
-                                                            <td><?php echo "Year ".$cys; ?></td>
+                                                            <td><?php echo "Year " . $cys; ?></td>
 
                                                             <td>
-                                                               
-        <a id="click" href="subject.php?id=<?php echo $id?>&code=<?php echo $code;?>&title=<?php echo $title;?>&cys=<?php echo $cys?>">
+
+        <a id="click" href="subject.php?id=<?php echo $id ?>&code=<?php echo $code; ?>&title=<?php echo $title; ?>&cys=<?php echo $cys ?>">
         <i class='glyphicon glyphicon-edit text-blue'></i></a>
-        <a id="removeme" href="subject_del.php?id=<?php echo $id?>">
+        <a id="removeme" href="subject_del.php?id=<?php echo $id ?>">
         <i class='glyphicon glyphicon-remove text-red'></i></a>
                                                             </td>
 
                                                         </tr>
 
 
-                                                    <?php } ?>
+                                                    <?php }?>
                                                 </table>
 
                                             </div><!--col end -->
@@ -123,13 +123,13 @@ error_reporting(0);
                                                         <select class="form-control select2" name="cys" required>
                                                             <option></option>
                                                             <?php
-                                                            $dept_id = $_SESSION['dept_id'];
-                                                            $query2 = mysqli_query($con, "select * from cys where dept_id ='$dept_id'")or die(mysqli_error($con));
-                                                            while ($row = mysqli_fetch_array($query2)) {
-                                                                ?>
-                                                                <option value="<?php echo $row['cys']?>"><?php echo "Year ".$row['cys']; ?></option>
+$dept_id = $_SESSION['dept_id'];
+$query2  = mysqli_query($con, "select * from cys where dept_id ='$dept_id'") or die(mysqli_error($con));
+while ($row = mysqli_fetch_array($query2)) {
+    ?>
+                                                                <option value="<?php echo $row['cys'] ?>"><?php echo "Year " . $row['cys']; ?></option>
                                                             <?php }
-                                                            ?>
+?>
                                                         </select>
                                                         </div><!-- /.form group -->
                                                     </div>
@@ -167,13 +167,13 @@ error_reporting(0);
                                                                      <select class="form-control select2" name="cys" required>
                                                             <option></option>
                                                             <?php
-                                                            $dept_id = $_SESSION['dept_id'];
-                                                            $query2 = mysqli_query($con, "select * from cys where dept_id ='$dept_id'")or die(mysqli_error($con));
-                                                            while ($row = mysqli_fetch_array($query2)) {
-                                                                ?>
-                                                                <option value="<?php echo $row['cys']?>"><?php echo "Year ". $row['cys']; ?></option>
+$dept_id = $_SESSION['dept_id'];
+$query2  = mysqli_query($con, "select * from cys where dept_id ='$dept_id'") or die(mysqli_error($con));
+while ($row = mysqli_fetch_array($query2)) {
+    ?>
+                                                                <option value="<?php echo $row['cys'] ?>"><?php echo "Year " . $row['cys']; ?></option>
                                                             <?php }
-                                                            ?>
+?>
                                                         </select>
                                                             </div><!-- /.form group -->
                                                     </div>
@@ -202,7 +202,7 @@ error_reporting(0);
                     </section><!-- /.content -->
                 </div><!-- /.container -->
             </div><!-- /.content-wrapper -->
-            <?php include('../dist/includes/footer.php'); ?>
+            <?php include '../dist/includes/footer.php';?>
         </div><!-- ./wrapper -->
 
         <!-- <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script> -->

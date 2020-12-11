@@ -4,27 +4,24 @@ session_start();
 if (empty($_SESSION['id'])):
     header('Location:../index.php');
 endif;
-$status =$_SESSION['type'];
-$page = "";
-                          if ($status=='head') {
-                                $page = "home.php";
-                            }
-                            elseif ($status=='faculty') {
-                                $page = "faculty_code.php";
-                            }
-                            elseif ($status=='teacher') {
-                                $page ="faculty_home.php";
-                            }
-                            elseif ($status=='stu') {
-                                $page = "student_home.php";
-                            }
+$status = $_SESSION['type'];
+$page   = "";
+if ($status == 'head') {
+    $page = "home.php";
+} elseif ($status == 'faculty') {
+    $page = "faculty_code.php";
+} elseif ($status == 'teacher') {
+    $page = "faculty_home.php";
+} elseif ($status == 'stu') {
+    $page = "student_home.php";
+}
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Profile | <?php include('../dist/includes/title.php'); ?></title>
+        <title>Profile | <?php include '../dist/includes/title.php';?></title>
         <!-- Tell the browser to be responsive to screen width -->
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,9 +47,9 @@ $page = "";
         </div>
         <div class="wrapper">
             <?php
-            include('../dist/includes/header.php');
-            include('../dist/includes/dbcon.php');
-            ?>
+include '../dist/includes/header.php';
+include '../dist/includes/dbcon.php';
+?>
             <!-- Full Width Column -->
             <div class="content-wrapper">
                 <div class="container">
@@ -77,13 +74,13 @@ $page = "";
                         </section>
 
                     <section class="content-header">
-                   
+
                     </section>
                     <?php
-                    $id = $_SESSION['id'];
-                    $query = mysqli_query($con, "select * from member where member_id='$id'")or die(mysqli_error());
-                    $row = mysqli_fetch_array($query);
-                    ?>
+$id    = $_SESSION['id'];
+$query = mysqli_query($con, "select * from member where member_id='$id'") or die(mysqli_error());
+$row   = mysqli_fetch_array($query);
+?>
                     <!-- Main content -->
                     <section class="content">
                         <div class="row">
@@ -157,7 +154,7 @@ $page = "";
                     </section><!-- /.content -->
                 </div><!-- /.container -->
             </div><!-- /.content-wrapper -->
-            <?php include('../dist/includes/footer.php'); ?>
+            <?php include '../dist/includes/footer.php';?>
 
 <!-- section schedule modal -->
       <div class="modal fade" id="searchclass">
@@ -173,13 +170,13 @@ $page = "";
                 <form class="form-horizontal" method="post" action="class_sched.php" target="_blank">
                  <select class="form-control select2" name="class" style="width:90%!important" required>
                    <?php
-                                        $dept_id = $_SESSION['dept_id'];
-                                        $query2 = mysqli_query($con, "select * from section join cys on cys.cys_id=section.cys_id where cys.dept_id ='$dept_id'")or die(mysqli_error($con));
-                                        while ($row2 = mysqli_fetch_array($query2)) {
-                                            ?>
-                                            <option><?php echo "Yr".$row2['cys']." Sec ".$row2['section'] ?></option>
+$dept_id = $_SESSION['dept_id'];
+$query2  = mysqli_query($con, "select * from section join cys on cys.cys_id=section.cys_id where cys.dept_id ='$dept_id'") or die(mysqli_error($con));
+while ($row2 = mysqli_fetch_array($query2)) {
+    ?>
+                                            <option><?php echo "Yr" . $row2['cys'] . " Sec " . $row2['section'] ?></option>
                                         <?php }
-                                        ?>
+?>
                 </select>
             </div>
             <div class="modal-footer justify-content-between">
@@ -207,14 +204,14 @@ $page = "";
             <div class="modal-body">
                 <form class="form-horizontal" method="post" action="room_sched.php" target="_blank">
                  <select class="form-control select2" name="room" style="width:90%!important" required>
-                        <?php 
-                        $q2 = mysqli_query($con, "select * from room join block on room.block_id=block.block_id where block.dept_id ='$_SESSION[dept_id]' ");
-                         while ($row = mysqli_fetch_array($q2)) {
-                             echo "<option vlaue='$row[room_id]'>".$row['room']."</option>";
-                         }
-                        ?>
+                        <?php
+$q2 = mysqli_query($con, "select * from room join block on room.block_id=block.block_id where block.dept_id ='$_SESSION[dept_id]' ");
+while ($row = mysqli_fetch_array($q2)) {
+    echo "<option vlaue='$row[room_id]'>" . $row['room'] . "</option>";
+}
+?>
                 </select>
-            </div>  
+            </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
               <button type="submit" name="search"class="btn btn-success">Display Schedule</button>
@@ -290,7 +287,7 @@ $page = "";
     $('#timepicker').datetimepicker({
       format: 'LT'
     })
-    
+
     //Bootstrap Duallistbox
     $('.duallistbox').bootstrapDualListbox()
 

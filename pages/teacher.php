@@ -10,7 +10,7 @@ endif;
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home | <?php include('../dist/includes/title.php'); ?></title>
+    <title>Home | <?php include '../dist/includes/title.php';?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -31,7 +31,7 @@ endif;
     <img src="../dist/img/header.png" alt="site logo goes here." style="height: 150px;width: 100%;">
 </div>
 <div class="wrapper">
-    <?php include('../dist/includes/header.php'); ?>
+    <?php include '../dist/includes/header.php';?>
     <!-- Full Width Column -->
     <div class="content-wrapper">
         <div class="container">
@@ -64,22 +64,22 @@ endif;
                                                 </thead>
 
                                                 <?php
-                                                include('../dist/includes/dbcon.php');
-                                                $dept_id = $_SESSION['dept_id'];
-                                                $query = mysqli_query($con, "select * from member left outer join dept on member.dept_id=dept.dept_id where (member.status ='teacher' or member.status='stu') and member.dept_id='$dept_id' ")or die(mysqli_error());
+include '../dist/includes/dbcon.php';
+$dept_id = $_SESSION['dept_id'];
+$query   = mysqli_query($con, "select * from member left outer join dept on member.dept_id=dept.dept_id where (member.status ='teacher' or member.status='stu') and member.dept_id='$dept_id' ") or die(mysqli_error());
 
-                                                while ($row = mysqli_fetch_array($query)) {
-                                                    $id = $row['member_id'];
-                                                    $last = $row['member_last'];
-                                                    $first = $row['member_first'];
-                                                    $rank = $row['member_rank'];
-                                                    $salut = $row['member_salut'];
-                                                    $dept = $row['dept_code'];
-                                                    $username = $row['username'];
-                                                    $password = $row['password'];
-                                                    $status = $row['status'];
-                                              
-                                                    ?>
+while ($row = mysqli_fetch_array($query)) {
+    $id       = $row['member_id'];
+    $last     = $row['member_last'];
+    $first    = $row['member_first'];
+    $rank     = $row['member_rank'];
+    $salut    = $row['member_salut'];
+    $dept     = $row['dept_code'];
+    $username = $row['username'];
+    $password = $row['password'];
+    $status   = $row['status'];
+
+    ?>
                                                     <tr>
                                                         <td><?php echo $id; ?></td>
                                                         <td><?php echo $last; ?></td>
@@ -101,7 +101,7 @@ endif;
                                                     </tr>
 
 
-                                                <?php } ?>
+                                                <?php }?>
                                             </table>
 
                                         </div><!--col end -->
@@ -130,13 +130,13 @@ endif;
                                                 <select class="form-control select2" name="salut" required>
                                                   <option></option>
                                                     <?php
-                                                    include('../dist/includes/dbcon.php');
-                                                    $query2 = mysqli_query($con, "select * from salut order by salut")or die(mysqli_error($con));
-                                                    while ($row = mysqli_fetch_array($query2)) {
-                                                        ?>
+include '../dist/includes/dbcon.php';
+$query2 = mysqli_query($con, "select * from salut order by salut") or die(mysqli_error($con));
+while ($row = mysqli_fetch_array($query2)) {
+    ?>
                                                         <option value="<?php echo $row['salut']; ?>"><?php echo $row['salut']; ?></option>
                                                     <?php }
-                                                    ?>
+?>
                                                 </select>
 
                                             </div><!-- /.form group -->
@@ -155,28 +155,28 @@ endif;
                                                 <select class="form-control select2" name="rank" required>
                                                  <option></option>
                                                     <?php
-                                                    $query2 = mysqli_query($con, "select * from rank order by rank")or die(mysqli_error($con));
-                                                    while ($row = mysqli_fetch_array($query2)) {
-                                                        ?>
+$query2 = mysqli_query($con, "select * from rank order by rank") or die(mysqli_error($con));
+while ($row = mysqli_fetch_array($query2)) {
+    ?>
                                                         <option value="<?php echo $row['rank']; ?>"><?php echo $row['rank']; ?></option>
                                                     <?php }
-                                                    ?>
+?>
                                                 </select>
 
                                             </div><!-- /.form group -->
-                                         
+
                                             <div class="form-group">
                                                 <label for="date">Designation</label>
 
                                                 <select class="form-control select2" name="designation" required>
                                                    <option></option>
                                                     <?php
-                                                    $query2 = mysqli_query($con, "select * from designation order by designation_name")or die(mysqli_error($con));
-                                                    while ($row = mysqli_fetch_array($query2)) {
-                                                        ?>
+$query2 = mysqli_query($con, "select * from designation order by designation_name") or die(mysqli_error($con));
+while ($row = mysqli_fetch_array($query2)) {
+    ?>
                                                         <option value="<?php echo $row['designation_id']; ?>"><?php echo $row['designation_name']; ?></option>
                                                     <?php }
-                                                    ?>
+?>
                                                 </select>
 
                                             </div><!-- /.form group -->
@@ -187,7 +187,7 @@ endif;
                                                     <option></option>>
                                                     <option>teacher</option>
                                                     <option>stu</option>
-                                              
+
                                                 </select>
 
                                             </div><!-- /.form group -->
@@ -220,7 +220,7 @@ endif;
             </section><!-- /.content -->
         </div><!-- /.container -->
     </div><!-- /.content-wrapper -->
-    <?php include('../dist/includes/footer.php'); ?>
+    <?php include '../dist/includes/footer.php';?>
 </div><!-- ./wrapper -->
 
 

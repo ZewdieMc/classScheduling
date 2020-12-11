@@ -1,5 +1,5 @@
 <?php
-include('../dist/includes/dbcon.php');
+include '../dist/includes/dbcon.php';
 $status = "";
 ?>
 
@@ -50,7 +50,7 @@ $status = "";
                         </a>
                     </li>
 
-                   
+
                      <li class="">
                         <!-- Menu Toggle Button -->
                         <a href="dean_sched.php" class="dropdown-toggle">
@@ -63,7 +63,7 @@ $status = "";
                     <li class="dropdown notifications-menu">
                         <!-- Menu toggle button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"style="color:#fff;">
-                            <i class="glyphicon glyphicon-briefcase text-yellow"></i> Manage 
+                            <i class="glyphicon glyphicon-briefcase text-yellow"></i> Manage
                              <span class="caret text-yellow"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -76,7 +76,7 @@ $status = "";
                                         </a>
                                     </li><!-- end notification -->
 
-                                   
+
 
                                     <li><!-- start notification -->
                                         <a href="room.php">
@@ -111,10 +111,10 @@ $status = "";
                         <!-- Menu Toggle Button -->
                         <a href="faculty_profile.php" class="dropdown-toggle">
                             <i class="glyphicon glyphicon-user text-yellow"></i>
-                            <?php echo $_SESSION['name'] . " (" . $_SESSION['dept_code'] . " | ".$_SESSION['type'].")"; ?>
+                            <?php echo $_SESSION['name'] . " (" . $_SESSION['dept_code'] . " | " . $_SESSION['type'] . ")"; ?>
                         </a>
                     </li>
-                    
+
                     <li class="">
                         <!-- Menu Toggle Button -->
                         <a href="logout.php" class="dropdown-toggle">
